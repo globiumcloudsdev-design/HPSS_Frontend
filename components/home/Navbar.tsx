@@ -16,6 +16,7 @@ import {
   Sparkles,
   LogIn,
   Star,
+  ShieldCheck,
 } from "lucide-react";
 import { InquiryDialog } from "./InquiryDialog";
 
@@ -90,24 +91,34 @@ export function Navbar() {
         </nav>
 
         {/* Action Buttons with Funky School Colors */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        <div className="hidden sm:flex items-center gap-2">
+          <Link href="/login">
+            <Button
+              variant="ghost"
+              className="rounded-full text-xs font-bold h-9 px-3 text-slate-700 hover:text-slate-950 hover:bg-[#17b4cd]/10 transition-all cursor-pointer flex items-center gap-1.5 border border-slate-200/60 hover:border-[#17b4cd]/40"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-slate-800" />
+              <span>Admin</span>
+            </Button>
+          </Link>
+
           <Link href="/portal-login">
             <Button
               variant="ghost"
-              className="rounded-full text-xs font-bold h-9 px-3.5 text-slate-700 hover:text-slate-900 hover:bg-[#17b4cd]/10 transition-all cursor-pointer flex items-center gap-1.5 border border-transparent hover:border-[#17b4cd]/30"
+              className="rounded-full text-xs font-bold h-9 px-3 text-slate-700 hover:text-slate-900 hover:bg-[#17b4cd]/10 transition-all cursor-pointer flex items-center gap-1.5 border border-transparent hover:border-[#17b4cd]/30"
             >
               <LogIn className="w-3.5 h-3.5 text-[#17b4cd]" />
-              <span>Portal Login</span>
+              <span>Portal</span>
             </Button>
           </Link>
 
           <InquiryDialog>
-            <Button className="relative group rounded-full bg-[#17b4cd] hover:bg-[#139bb0] text-white font-black text-xs h-9 px-5 shadow-[0_6px_18px_rgba(23,180,205,0.4)] transition-all hover:scale-105 cursor-pointer flex items-center gap-1.5 border-2 border-white">
+            <Button className="relative group rounded-full bg-[#17b4cd] hover:bg-[#139bb0] text-white font-black text-xs h-9 px-4 shadow-[0_6px_18px_rgba(23,180,205,0.4)] transition-all hover:scale-105 cursor-pointer flex items-center gap-1.5 border-2 border-white">
               <span className="absolute -top-1.5 -right-1 px-1.5 py-0.2 bg-[#ebdd51] text-slate-950 text-[8px] font-black rounded-full uppercase shadow-xs animate-bounce">
                 Open!
               </span>
               <Sparkles className="w-3.5 h-3.5 text-[#ebdd51] animate-spin-slow" />
-              <span>Apply 2026</span>
+              <span>Apply</span>
             </Button>
           </InquiryDialog>
         </div>
@@ -196,15 +207,27 @@ export function Navbar() {
                   </Button>
                 </InquiryDialog>
 
-                <Link href="/portal-login" onClick={() => setMobileOpen(false)}>
-                  <Button
-                    variant="outline"
-                    className="w-full rounded-2xl border-slate-300 text-slate-800 font-bold text-xs h-10 cursor-pointer flex items-center justify-center gap-2 mt-2"
-                  >
-                    <LogIn className="w-4 h-4 text-[#17b4cd]" />
-                    <span>Digital Portals Login</span>
-                  </Button>
-                </Link>
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  <Link href="/login" onClick={() => setMobileOpen(false)}>
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-2xl border-slate-300 text-slate-800 font-bold text-xs h-10 cursor-pointer flex items-center justify-center gap-1.5 bg-slate-50"
+                    >
+                      <ShieldCheck className="w-3.5 h-3.5 text-slate-800" />
+                      <span>Admin</span>
+                    </Button>
+                  </Link>
+
+                  <Link href="/portal-login" onClick={() => setMobileOpen(false)}>
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-2xl border-slate-300 text-slate-800 font-bold text-xs h-10 cursor-pointer flex items-center justify-center gap-1.5"
+                    >
+                      <LogIn className="w-3.5 h-3.5 text-[#17b4cd]" />
+                      <span>Portal</span>
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

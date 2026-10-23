@@ -1,5 +1,4 @@
 import { Navbar } from "@/components/home/Navbar";
-import { MarqueeTicker } from "@/components/home/MarqueeTicker";
 import { Hero } from "@/components/home/Hero";
 import { FunkyCounters } from "@/components/home/FunkyCounters";
 import { PortalShowcase } from "@/components/home/PortalShowcase";
@@ -15,9 +14,6 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 selection:bg-[#ebdd51] selection:text-slate-900 relative">
       {/* Whimsical Floating Background School Doodles */}
       <FloatingDoodles />
-
-      {/* Funky Dual-Ribbon Marquee Ticker */}
-      <MarqueeTicker />
 
       {/* Glassmorphic Navbar with Glowing Crest */}
       <Navbar />
